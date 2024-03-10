@@ -1,0 +1,44 @@
+<!-- <div>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>User</mat-label>
+    <input matInput placeholder="Enter user name" [value]="userId"> <p>{{ userId }}</p>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <input matInput placeholder="Enter your todo task" [value]="title">
+  </mat-form-field>
+  
+     <mat-checkbox class="example-margin" [(ngModel)]="completed">Checked</mat-checkbox> 
+    <input type="checkbox" name="reminder" [(ngModel)]="completed" id="reminder"/>
+  
+  <button mat-button color="primary">Add Task</button>
+
+</form>
+</div> -->
+
+<div class="" *ngIf = "showAddTask">
+    <mat-card>
+      <mat-card-content> 
+        <mat-form-field class="example-full-width">
+            <mat-label>Enter user name</mat-label>
+            <input matInput placeholder="Enter user name" name="username" [(ngModel)]="userId">
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+            <mat-label>Enter your todo task</mat-label>
+            <input matInput placeholder="Enter your todo task"  name="title" [(ngModel)]="title">
+          </mat-form-field>
+          <mat-checkbox class="example-margin" name="reminder" [(ngModel)]="completed">Its completed</mat-checkbox> 
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+        <button mat-button mat-raised-button color="warn" (click)="toggleAddTask(false)" style="margin-left: 16px;">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+</div>
+<div *ngIf = "!showAddTask">
+    <button mat-button mat-raised-button color="primary" (click)="toggleAddTask(true)" style="margin-left: 85%; margin-bottom: 16px;">Add</button>
+</div>
